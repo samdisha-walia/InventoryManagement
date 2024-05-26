@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 CATEGORY =(
@@ -19,8 +20,8 @@ class Product(models.Model):
      #   verbose_name = _("")
 #        verbose_name_plural = _("s")
 
-   # def __str__(self):
-   #     return self.name
+    def __str__(self):
+        return f'{self.name}'
 
   #  def get_absolute_url(self):
    #     return reverse("_detail", kwargs={"pk": self.pk})
