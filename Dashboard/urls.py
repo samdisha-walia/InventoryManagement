@@ -11,6 +11,4 @@ urlpatterns = [
     path('Settings/', views.Settings, name = 'Settings'),
     path('Users/', views.Users, name = 'Users'),
     path('Help/', views.Help, name = 'Help'),
-    path('Notifications/', views.Notifications, name = 'Notifications'),
-    path('Logout/', views.Logout, name = 'Logout'),
 ]

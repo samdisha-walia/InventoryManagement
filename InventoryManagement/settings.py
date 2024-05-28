@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Dashboard.apps.DashboardConfig',
     'user.apps.UserConfig',
+    #'crispy_forms',
+   # 'bootstrap4',
 
 ]
 
@@ -102,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -124,3 +127,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'dashboard-index'
+
+LOGIN_URL = 'user-login'

@@ -23,8 +23,5 @@ def Users(request):
 def Help(request):
     return render(request, 'dash/Help.html')
 
-def Notifications(request):
-    return render(request, 'dash/Notifications.html')
 
-def Logout(request):
-    return render(request, 'dash/Logout.html')
+
