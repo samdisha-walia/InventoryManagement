@@ -1,8 +1,26 @@
 {% extends "partials/base.html" %}
 {% block title %} Inventory {% endblock %}
 {% block content %}
-<p> This is Inventory page</p>
-<p>This section should provide access to all inventory-related functionalities such as viewing, adding, editing, and deleting items, as well as managing inventory categories, locations, and suppliers.
-</p>
+<table class="table">
+    <thead>
+      <tr>
+       
+        <th scope="col">Product</th>
+        <th scope="col">Category</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for Product in Dashboard.Product %}
+      <tr>
+      
+        <td>{{Dashboard.Product.name}}</td>
+        <td>{{Dashboard.Product.category}}</td>
+        <td>{{Dashboard.Product.quantity}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
 
     {%endblock%}

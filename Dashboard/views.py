@@ -17,10 +17,7 @@ def Inventory(request):
 def Orders(request):
     return render(request, 'dash/Orders.html')
 
-@login_required(login_url = 'user-login')
-def Analytics(request):
-    return render(request, 'dash/Analytics.html')
 
 @login_required(login_url = 'user-login')
-def Settings(request):
-    return render(request, 'dash/Settings.html')
+def profile(request):
+    return render(request, 'user/profile.html')
