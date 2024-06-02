@@ -1,7 +1,46 @@
 {% extends "partials/base.html" %}
 {% block title %} Orders {% endblock %}
+{%if user.is_authenticated and user.is_staff and user.is_superuser %}
 {% block content %}
-<p> This is Orders page</p>
-<p> A section dedicated to managing orders, transactions, and sales. This may include functionalities such as viewing orders, processing transactions, managing customer information, and generating invoices.
-</p>
+<div class="row my-4">
+    <div class="col-md-4">
+        
+        <div class="card card-body">
+            <h5>Add New Orders</h5>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn btn-success btn-block" type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8">
+    <table class="table">
+      <thead>
+        <tr>
+         
+          <th scope="col">Product</th>
+          <th scope="col">Category</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Order By</th>
+        </tr>
+      </thead>
+      <tbody> 
+          {%for orders in orders %}
+        <tr>
+        
+          <td>{{orders.product}}</td>
+          <td>{{orders.product.category}}</td>
+          <td>{{orders.order_quantity}}</td>
+          <td>{{orders.staff.username}}</td>
+        </tr>
+        {% endfor %}
+        
+      </tbody>
+    </table>
+  </div>
+  </div>
+
     {%endblock%}
+      {% endif %}

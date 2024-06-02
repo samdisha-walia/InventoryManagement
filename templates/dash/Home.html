@@ -3,9 +3,17 @@
 
 {% block content %}
 
-{%if user.is_authenticated%}
-<p> This is Home page</p>
-<p>A link or button to navigate back to the main dashboard or home page, providing users with a central starting point for accessing other sections.
-</p>
+{%if user.is_authenticated and user.is_staff and user.is_superuser %}
+<li class="nav-item">
+  <a class="nav-link" href="{% url "Inventory" %}">Inventory</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url "Orders" %}">Orders</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url "Staff" %}">Staff</a>
+</li>
+{% else %}
+{% include 'dash/staff_home.html' %}
 {%endif%}
     {%endblock%}
