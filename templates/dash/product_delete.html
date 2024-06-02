@@ -1,5 +1,6 @@
 {% extends "partials/base.html" %}
 {% block title %} Product delete {% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="row my-4">
     <div class="col-md-6 offset-md-3">
@@ -11,7 +12,7 @@
                     <h4>Are you sure, you want to delete {{ item }}?</h4>
                 </div>
                 {% csrf_token %}
-                {{ form }}
+                {{ form|crispy }}
                 <a class="btn btn-secondary btn-sm" href="{% url 'Inventory' %}">Cancel</a>
                 <input class="btn btn-danger btn-sm" type="submit" value="Confirm">
             </form>

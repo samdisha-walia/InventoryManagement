@@ -51,8 +51,19 @@ def Inventory(request):
 @login_required(login_url = 'user-login')
 def Orders(request):
     orders= Order.objects.all()
+
+    if request.method=='POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            product_name=form.cleaned_data.get('product')
+            messages.success(request,f'{product_name } has been added')
+            return redirect('Orders')
+    else:
+        form =OrderForm()
     context ={
         'orders':orders,
+        'form': form,
 
     }
     return render(request, 'dash/Orders.html',context)
