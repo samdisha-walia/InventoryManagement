@@ -1,52 +1,21 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   {% if user.is_authenticated %}
-
-  
-    <a class="navbar-brand" href="{% url "Home" %}">Business Inventory</a>
+  <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+    <a class="navbar-brand" href="{% url 'Home' %}">Business Inventory</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-       <!--  <li class="nav-item">
-          <a class="nav-link" href=" {% url "Home" %}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "Inventory" %}">Inventory</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "Orders" %}">Orders</a>
-        </li>-->
-        <li class="nav-item">
-          <a class="nav-link" href="{% url "profile" %}">{{ user.username }} Profile</a>
-        </li>
-        
-        
-      
 
-      
-        <!--<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>-->
-      <!--  <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" style="display: flex; align-items: center;">
+        <li class="nav-item" style="margin-right: 15px;">
+          <a class="nav-link" href="{% url 'profile' %}">{{ user.username }} Profile</a>
         </li>
-      </ul>-->
-      
+      </ul>
       <form class="form-inline my-2 my-lg-0">
-       <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url "user-login" %}" type="submit">Logout</a>
+        <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'user-login' %}" type="submit">Logout</a>
       </form>
-      {% endif %}
     </div>
-  </nav>
+  </div>
+  {% endif %}
+</nav>
